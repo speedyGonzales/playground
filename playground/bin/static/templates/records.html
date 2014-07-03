@@ -1,0 +1,54 @@
+{% extends 'home.html' %}
+{% block content %}
+
+
+{% for d in data %}
+    <p>{% for field,value in d.items %}
+         {{value.label}}: {{value.fieldvalue}}
+    {% endfor %}</p>
+{% endfor %}
+
+{% if user.is_authenticated %}
+<div id="chart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <script type="text/javascript">
+$(function () {
+         var cat={{des | safe}}
+         var dat={{dis | safe }}
+
+        $('#chart').highcharts({
+            title: {
+                text: 'My Training progress',
+                x: -20 //center
+            },
+
+            yAxis: {
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+              xAxis: {
+                categories: cat
+            },
+            series: [{
+                name: 'distance',
+                data: dat
+            }]
+        });
+    });
+
+    </script>
+{% endif %}
+{% endblock %}
+
+
+
+

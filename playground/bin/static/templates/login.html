@@ -1,0 +1,14 @@
+{% extends 'home.html' %}
+
+{% block login %}
+
+    <form method="POST">
+        {{ login_form.as_p }} {% csrf_token %}
+        <button class="btn btn-success" >Login!</button>
+    </form>
+    <br/>
+    <p>Not a member? <a href="/home/">Register!</a><p>
+
+
+{% endblock %}
+

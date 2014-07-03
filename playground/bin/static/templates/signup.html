@@ -1,0 +1,24 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+<h2>Register now and start running</h2>
+    <form method="POST">
+        {{ register_form.as_p }}
+        {% csrf_token %}
+        <button class="btn btn-success" >Register!</button>
+    </form>
+
+
+        <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+
+        <div name="twitter">
+            <a href="https://twitter.com/share" class="twitter-share-button"
+            data-url="http://127.0.0.1:8000/" data-text="The runners site"
+            data-via="tomaxabka" data-size="large" data-related="tomaxabka"
+            data-hashtags="running">Tweet</a>
+        </div>
+
+
+{% endblock %}
+

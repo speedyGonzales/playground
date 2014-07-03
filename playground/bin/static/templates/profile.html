@@ -1,0 +1,32 @@
+ {% extends 'home.html' %}
+
+
+ {% block profile %}
+ {% if user.is_authenticated %}
+     <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron" style="text-align: left">
+      <div class="container">
+        <h2>Hello, {{ username }} !</h2>
+        <img src="/media/profile.jpg" alt="Profile" class="img-circle"/>
+        <p>
+        Let's have some fun, go to run !</p>
+      </div>
+    </div>
+
+<!--   <div class="col-lg-10">
+  <h2>Heading</h2>
+  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+  <p><a class="btn btn-success" href="#" role="button">Read more &raquo;</a></p>
+</div>
+<div class="col-lg-10">
+  <h2>Heading</h2>
+  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+  <p><a class="btn btn-success" href="#" role="button">Read more &raquo;</a></p>
+</div> -->
+  {% else %}
+    <div class="col-lg-10" style="text-align: center">
+      {% block login %}{% endblock %}
+    </div>
+  {% endif %}
+{% endblock %}
+

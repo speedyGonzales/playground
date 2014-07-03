@@ -1,0 +1,14 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+        <h2>Please enter a record</h2>
+        <form method="POST" action="." role="form"> {% csrf_token %}
+            {{ form.as_p}}
+            <button type="submit" class="btn btn-success">Register</button>
+        </form>
+{% endif %}
+
+{% endblock %}
+
